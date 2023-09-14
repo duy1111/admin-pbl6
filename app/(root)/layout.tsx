@@ -8,14 +8,14 @@ export default async function SetupLayout({children}:{children: React.ReactNode}
         redirect('/sign-in')
     }
 
-    const store = await prismadb.store.findFirst({
+    const category = await prismadb.category.findFirst({
         where:{
             userId
         }
     });
 
-    if(store){
-        redirect(`/${store.id}`)
+    if(category){
+        redirect(`/${category.id}`)
     }
 
     return (

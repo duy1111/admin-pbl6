@@ -1,7 +1,7 @@
 "use client";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
-import { useStoreModal } from "@/hooks/use-store-modal";
+import { useCategoryModal } from "@/hooks/use-store-modal";
 import { Modal } from "@/components/ui/modal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -17,14 +17,13 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { error } from "console";
 
 const formSchema = z.object({
   name: z.string().min(1),
 });
 
-export const StoreModal = () => {
-  const storeModal = useStoreModal();
+export const CategoryModal = () => {
+  const categoryModal = useCategoryModal();
   const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,7 +35,7 @@ export const StoreModal = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/stores", values);
+      const response = await axios.post("/api/categories", values);
       window.location.assign(`/${response.data.id}`);
     } catch (error) {
       console.log(error);
@@ -48,10 +47,10 @@ export const StoreModal = () => {
 
   return (
     <Modal
-      title="Create store"
-      description="Add a new store to manage products and category"
-      isOpen={storeModal.isOpen}
-      onClose={storeModal.onClose}
+      title="Create Category"
+      description="Add a new category to manage products and category"
+      isOpen={categoryModal.isOpen}
+      onClose={categoryModal.onClose}
     >
       <div>
         <div className="space-y-4 py-2 pb-4">
@@ -66,7 +65,7 @@ export const StoreModal = () => {
                     <FormControl>
                       <Input
                         disabled={loading}
-                        placeholder="E-Commerce"
+                        placeholder="Admin"
                         {...field}
                       />
                     </FormControl>
@@ -78,7 +77,7 @@ export const StoreModal = () => {
                 <Button
                   disabled={loading}
                   variant={"outline"}
-                  onClick={storeModal.onClose}
+                  onClick={categoryModal.onClose}
                 >
                   Cancel
                 </Button>

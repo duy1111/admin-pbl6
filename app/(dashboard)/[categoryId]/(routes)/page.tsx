@@ -1,20 +1,20 @@
 import prismadb from "@/lib/prismadb";
 
 interface DashboardPageProps{
-    params: {storeId: string}
+    params: {categoryId: string}
 }
 
 const DashboardPage: React.FC<DashboardPageProps> = async ({
     params
 }) => { 
-    const store = await prismadb.store.findFirst({
+    const category = await prismadb.category.findFirst({
         where:{
-            id: params.storeId
+            id: params.categoryId
         }
     })
     return ( 
         <div>
-            Active Store: {store?.name}
+            Active Category: {category?.name}
         </div>
      );
 }
