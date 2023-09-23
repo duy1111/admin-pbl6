@@ -4,7 +4,7 @@ services:
     image: postgres:15.0
     container_name: admin-database
     ports:
-      -  5434:5432 #{port in host(myPC)} : {port in Container}
+      - 5434:5432 #{port in host(myPC)} : {port in Container}
     # environment variables, like:db's username, password...
     environment:
       POSTGRES_USER: postgres
