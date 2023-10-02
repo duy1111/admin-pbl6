@@ -13,7 +13,7 @@ interface OrderClientProps {
   data: OrderColumn[];
 }
 
-const OrderClient: React.FC<OrderClientProps> = ({ data }) => {
+export const OrderClient: React.FC<OrderClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
   return (
@@ -28,4 +28,3 @@ const OrderClient: React.FC<OrderClientProps> = ({ data }) => {
   );
 };
 
-export default OrderClient;

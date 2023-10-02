@@ -5,7 +5,7 @@ import prismadb from '@/lib/prismadb';
 import { CategoryColumn } from './components/columns';
 import { CategoriesClient } from './components/client';
 
-const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
+export const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
   const categories = await prismadb.category.findMany({
     where: {
       storeId: params.storeId
@@ -34,4 +34,3 @@ const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default CategoriesPage;

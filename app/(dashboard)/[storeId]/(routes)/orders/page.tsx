@@ -3,10 +3,10 @@ import { format } from 'date-fns';
 import prismadb from '@/lib/prismadb';
 
 import { OrderColumn } from './components/columns';
-import OrderClient from './components/client';
+import {OrderClient} from './components/client';
 import { formatter } from '@/lib/utils';
 
-const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
+export const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   const orders = await prismadb.order.findMany({
     where: {
       storeId: params.storeId
@@ -45,4 +45,3 @@ const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default OrdersPage;

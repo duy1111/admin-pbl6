@@ -1,3 +1,4 @@
+'use client'
 import { format } from 'date-fns';
 
 import prismadb from '@/lib/prismadb';
@@ -7,7 +8,7 @@ import BillboardClient from './components/client';
 import { formatter } from '@/lib/utils';
 import ProductClient from './components/client';
 
-const ProductsPage = async ({ params }: { params: { storeId: string } }) => {
+export const ProductsPage = async ({ params }: { params: { storeId: string } }) => {
   const products = await prismadb.product.findMany({
     where: {
       storeId: params.storeId
@@ -44,4 +45,3 @@ const ProductsPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default ProductsPage;

@@ -1,8 +1,9 @@
+'use client'
 import prismadb from '@/lib/prismadb';
 
 import { CategoryForm } from './components/category-form';
 
-const CategoryPage = async ({
+export const CategoryPage = async ({
   params
 }: {
   params: { categoryId: string; storeId: string };
@@ -28,4 +29,3 @@ const CategoryPage = async ({
   );
 };
 
-export default CategoryPage;

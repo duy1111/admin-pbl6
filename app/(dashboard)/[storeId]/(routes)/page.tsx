@@ -14,7 +14,7 @@ interface DashboardPageProps {
   params: { storeId: string };
 }
 
-const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
+export const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   const totalRevenue = await getTotalRevenue(params.storeId);
   const saleCount = await getSalesCount(params.storeId);
   const stockCount = await getStockCount(params.storeId);
@@ -86,4 +86,3 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   );
 };
 
-export default DashboardPage;
