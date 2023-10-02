@@ -74,8 +74,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit billboard' : 'Create billboard';
-  const description = initialData ? 'Edit a billboard.' : 'Add a new billboard';
+  const title = initialData ? 'Edit Product' : 'Create Product';
+  const description = initialData ? 'Edit a Product.' : 'Add a new Product';
   const toastMessage = initialData
     ? 'Billboard updated.'
     : 'Billboard created.';
@@ -105,7 +105,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       setLoading(true);
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/products/${params.billboardId}`,
+          `/api/${params.storeId}/products/${params.productId}`,
           data
         );
       } else {
@@ -212,7 +212,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Label</FormLabel>
+                  <FormLabel>Price</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
@@ -262,7 +262,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="colorId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Size</FormLabel>
+                  <FormLabel>Color</FormLabel>
                   <Select
                     disabled={loading}
                     onValueChange={field.onChange}

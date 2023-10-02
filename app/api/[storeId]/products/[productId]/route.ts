@@ -23,7 +23,7 @@ export async function GET(
         category: true
       }
     });
-
+    console.log(product)
     return NextResponse.json(product);
   } catch (error) {
     console.log('[PRODUCT_GET]', error);
