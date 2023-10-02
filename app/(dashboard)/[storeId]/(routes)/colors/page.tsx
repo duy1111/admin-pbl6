@@ -5,7 +5,7 @@ import prismadb from '@/lib/prismadb';
 import { ColorColumn } from './components/columns';
 import { ColorClient } from './components/client';
 
-export const ColorsPage = async ({ params }: { params: { storeId: string } }) => {
+const ColorsPage = async ({ params }: { params: { storeId: string } }) => {
   const colors = await prismadb.color.findMany({
     where: {
       storeId: params.storeId
@@ -31,4 +31,5 @@ export const ColorsPage = async ({ params }: { params: { storeId: string } }) =>
   );
 };
 
-import React from 'react'
+
+export default ColorsPage

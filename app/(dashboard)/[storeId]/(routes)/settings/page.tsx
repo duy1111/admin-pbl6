@@ -1,4 +1,4 @@
-'use client'
+
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs';
 
@@ -6,7 +6,7 @@ import prismadb from '@/lib/prismadb';
 
 import { SettingsForm } from './components/setting-forms';
 
-export const SettingsPage = async ({ params }: { params: { storeId: string } }) => {
+const SettingsPage = async ({ params }: { params: { storeId: string } }) => {
   const { userId } = auth();
 
   if (!userId) {
@@ -33,3 +33,4 @@ export const SettingsPage = async ({ params }: { params: { storeId: string } }) 
   );
 };
 
+export default SettingsPage

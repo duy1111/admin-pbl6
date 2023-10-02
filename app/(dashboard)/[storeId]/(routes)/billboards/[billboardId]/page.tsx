@@ -1,8 +1,8 @@
-'use client'
+
 import prismadb from '@/lib/prismadb';
 import { BillboardForm } from './components/billboard-forms';
 
-export const BillboardPage = async ({
+const BillboardPage = async ({
   params
 }: {
   params: { billboardId: string };
@@ -20,4 +20,6 @@ export const BillboardPage = async ({
     </div>
   );
 };
+
+export default BillboardPage
 

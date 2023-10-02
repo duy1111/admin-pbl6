@@ -6,7 +6,7 @@ import { OrderColumn } from './components/columns';
 import {OrderClient} from './components/client';
 import { formatter } from '@/lib/utils';
 
-export const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
+const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   const orders = await prismadb.order.findMany({
     where: {
       storeId: params.storeId
@@ -44,4 +44,6 @@ export const OrdersPage = async ({ params }: { params: { storeId: string } }) =>
     </div>
   );
 };
+
+export default OrdersPage
 
