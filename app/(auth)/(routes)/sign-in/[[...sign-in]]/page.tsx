@@ -1,7 +1,5 @@
-import { SignIn } from '@clerk/nextjs';
-
-const clerkSignInUrl = process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL;
+import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return <SignIn />;
-}
+};
