@@ -98,7 +98,7 @@ const renderCategoryId = async (categoryName?: string | null) => {
   }
   const getCategoryId = await prismadb.category.findFirst({
     where: {
-      name: categoryName,
+      name: categoryName.split("_").join(" "),
     },
   });
 
